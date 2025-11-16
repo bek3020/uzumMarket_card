@@ -1,0 +1,24 @@
+{
+  "products": [
+    { "id": 1, "name": "Uzum Smartfon A1", "price": 1200000, "image": "https://via.placeholder.com/150?text=Product+1" },
+    { "id": 2, "name": "Uzum Smartfon A2", "price": 1350000, "image": "https://via.placeholder.com/150?text=Product+2" },
+    { "id": 3, "name": "Uzum Smartfon B1", "price": 980000,  "image": "https://via.placeholder.com/150?text=Product+3" },
+    { "id": 4, "name": "Uzum Smartfon B2", "price": 1120000, "image": "https://via.placeholder.com/150?text=Product+4" },
+    { "id": 5, "name": "Uzum Smartfon C1", "price": 850000,  "image": "https://via.placeholder.com/150?text=Product+5" },
+    { "id": 6, "name": "Uzum Smartfon C2", "price": 950000,  "image": "https://via.placeholder.com/150?text=Product+6" },
+    { "id": 7, "name": "Uzum Smartfon D1", "price": 1300000, "image": "https://via.placeholder.com/150?text=Product+7" },
+    { "id": 8, "name": "Uzum Smartfon D2", "price": 1450000, "image": "https://via.placeholder.com/150?text=Product+8" },
+    { "id": 9, "name": "Uzum Smartfon E1", "price": 900000,  "image": "https://via.placeholder.com/150?text=Product+9" },
+    { "id": 10,"name": "Uzum Smartfon E2", "price": 1050000, "image": "https://via.placeholder.com/150?text=Product+10" },
+    { "id": 11,"name": "Uzum Smartfon F1", "price": 1100000, "image": "https://via.placeholder.com/150?text=Product+11" },
+    { "id": 12,"name": "Uzum Smartfon F2", "price": 1250000, "image": "https://via.placeholder.com/150?text=Product+12" },
+    { "id": 13,"name": "Uzum Smartfon G1", "price": 970000,  "image": "https://via.placeholder.com/150?text=Product+13" },
+    { "id": 14,"name": "Uzum Smartfon G2", "price": 1080000, "image": "https://via.placeholder.com/150?text=Product+14" },
+    { "id": 15,"name": "Uzum Smartfon H1", "price": 1150000, "image": "https://via.placeholder.com/150?text=Product+15" },
+    { "id": 16,"name": "Uzum Smartfon H2", "price": 1270000, "image": "https://via.placeholder.com/150?text=Product+16" },
+    { "id": 17,"name": "Uzum Smartfon I1", "price": 980000,  "image": "https://via.placeholder.com/150?text=Product+17" },
+    { "id": 18,"name": "Uzum Smartfon I2", "price": 1150000, "image": "https://via.placeholder.com/150?text=Product+18" },
+    { "id": 19,"name": "Uzum Smartfon J1", "price": 1230000, "image": "https://via.placeholder.com/150?text=Product+19" },
+    { "id": 20,"name": "Uzum Smartfon J2", "price": 1400000, "image": "https://via.placeholder.com/150?text=Product+20" }
+  ]
+}
