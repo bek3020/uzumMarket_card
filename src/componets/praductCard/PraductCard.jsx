@@ -12,12 +12,12 @@ const PraductCard = () => {
           <img
             src={item.image}
             alt={item.name}
-            className="w-full h-40 object-cover rounded"
+            className="w-full  object-cover rounded"
           />
 
           <h3 className="mt-2 font-semibold text-sm">{item.name}</h3>
 
-          <p className="text-lg font-bold text-violet-600 mt-1">
+          <p className="text-lg font-bold text-violet-600 mt-1 ">
             {item.price.toLocaleString()} so'm
           </p>
 
