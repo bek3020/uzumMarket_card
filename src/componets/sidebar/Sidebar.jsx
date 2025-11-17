@@ -1,148 +1,124 @@
-import React, { useState } from "react";
+import React from "react";
 
-const categories = [
-  "Бытовая техника",
-  "Климатическая техника",
-  "Крупная бытовая техника",
-  "Аксессуары и запчасти",
-  "Техника для кухни",
-];
+const Sidebar = ({ filter, setFilter }) => {
+  const categories = [
+    "Telefonlar",
+    "Planshetlar",
+    "Noutbuklar",
+    "Aksessuarlar",
+  ];
+  const colors = ["Qora", "Oq", "Qizil", "Ko‘k"];
+  const brands = ["Apple", "Samsung", "Xiaomi", "Huawei"];
+  const countries = ["Xitoy", "AQSh", "Koreya", "Rossiya"];
 
-const colors = [
-  { name: "Коричневый", color: "#6f3e18" },
-  { name: "Красный", color: "#bd1e1e" },
-  { name: "Зеленый", color: "#2e7d32" },
-  { name: "Хаки", color: "#6b6b2e" },
-  { name: "Фиолетовый", color: "#7b1fa2" },
-  { name: "Розовый", color: "#e91e63" },
-];
+  const handleCheckboxChange = (type, value) => {
+    let newValues = [...filter[type]];
+    if (newValues.includes(value)) {
+      newValues = newValues.filter((v) => v !== value);
+    } else {
+      newValues.push(value);
+    }
+    setFilter({ ...filter, [type]: newValues });
+  };
 
-const brands = ["beemade", "DEME", "DEMARK", "Ecomagnet", "Homik", "Jaskpro"];
-
-const countries = [
-  "Австралия",
-  "Англия",
-  "Беларусь",
-  "Босния и Герцеговина",
-  "Венгрия",
-  "Вьетнам",
-];
-
-const Sidebar = () => {
-  const [price, setPrice] = useState([5000, 56000000]);
+  const handleAllCategoriesChange = () => {
+    if (filter.categories.length === categories.length) {
+      setFilter({ ...filter, categories: [] });
+    } else {
+      setFilter({ ...filter, categories: [...categories] });
+    }
+  };
 
   return (
-    <div className="w-full p-4 border rounded-lg bg-white shadow-sm text-sm">
-      {/* Категории */}
+    <div className="p-4 border rounded bg-white shadow-sm text-sm space-y-6">
+      <h3 className="font-semibold text-lg mb-3">Filtrlar</h3>
+
       <div>
-        <h2 className="font-semibold mb-2">Категории</h2>
-
-        <label className="flex items-center gap-2">
-          <input type="checkbox" defaultChecked />
-          <span>Все категории</span>
-        </label>
-
-        <div className="space-y-1 mt-1">
-          {categories.map((ct) => (
-            <label key={ct} className="flex items-center gap-2 pl-3">
-              <input type="checkbox" />
-              <span>{ct}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div className="my-4 border-b" />
-
-      {/* Цена */}
-      <div>
-        <h2 className="font-semibold mb-2">Цена, сум</h2>
-
-        <div className="flex items-center gap-2">
-          <input
-            type="number"
-            value={price[0]}
-            onChange={(e) => setPrice([+e.target.value, price[1]])}
-            className="w-1/2 border p-1 rounded text-sm"
-          />
-
-          <input
-            type="number"
-            value={price[1]}
-            onChange={(e) => setPrice([price[0], +e.target.value])}
-            className="w-1/2 border p-1 rounded text-sm"
-          />
-        </div>
-
-        <input
-          type="range"
-          min={5000}
-          max={56000000}
-          value={price[0]}
-          onChange={(e) => setPrice([+e.target.value, price[1]])}
-          className="w-full mt-3"
-        />
-      </div>
-
-      <div className="my-4 border-b" />
-
-      {/* Цвет */}
-      <div>
-        <h2 className="font-semibold mb-2">Цвет</h2>
-
-        <div className="space-y-2">
-          {colors.map((c) => (
+        <h4 className="font-medium mb-2">Kategoriyalar</h4>
+        <div className="flex flex-col space-y-1">
+          <label className="inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              checked={filter.categories.length === categories.length}
+              onChange={handleAllCategoriesChange}
+              className="form-checkbox"
+            />
+            <span className="ml-2 font-semibold">Hammasi</span>
+          </label>
+          {categories.map((category) => (
             <label
-              key={c.name}
-              className="flex items-center gap-2 cursor-pointer"
+              key={category}
+              className="inline-flex items-center cursor-pointer"
             >
-              <span
-                className="block w-4 h-4 rounded-full border"
-                style={{ backgroundColor: c.color }}
-              ></span>
-              <input type="checkbox" />
-              {c.name}
+              <input
+                type="checkbox"
+                checked={filter.categories.includes(category)}
+                onChange={() => handleCheckboxChange("categories", category)}
+                className="form-checkbox"
+              />
+              <span className="ml-2">{category}</span>
             </label>
           ))}
         </div>
-
-        <button className="text-violet-600 mt-1 text-xs">Еще 16</button>
       </div>
 
-      <div className="my-4 border-b" />
-
-      {/* Бренд */}
       <div>
-        <h2 className="font-semibold mb-2">Бренд</h2>
-
-        <div className="space-y-1 max-h-40 overflow-hidden">
-          {brands.map((b) => (
-            <label key={b} className="flex items-center gap-2">
-              <input type="checkbox" />
-              {b}
+        <h4 className="font-medium mb-2">Ranglar</h4>
+        <div className="flex flex-col space-y-1">
+          {colors.map((color) => (
+            <label
+              key={color}
+              className="inline-flex items-center cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                checked={filter.colors.includes(color)}
+                onChange={() => handleCheckboxChange("colors", color)}
+                className="form-checkbox"
+              />
+              <span className="ml-2">{color}</span>
             </label>
           ))}
         </div>
-
-        <button className="text-violet-600 mt-1 text-xs">Еще 456</button>
       </div>
 
-      <div className="my-4 border-b" />
-
-      {/* Страна */}
       <div>
-        <h2 className="font-semibold mb-2">Страна производства</h2>
-
-        <div className="space-y-1 max-h-40 overflow-hidden">
-          {countries.map((c) => (
-            <label key={c} className="flex items-center gap-2">
-              <input type="checkbox" />
-              {c}
+        <h4 className="font-medium mb-2">Brendlar</h4>
+        <div className="flex flex-col space-y-1">
+          {brands.map((brand) => (
+            <label
+              key={brand}
+              className="inline-flex items-center cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                checked={filter.brands.includes(brand)}
+                onChange={() => handleCheckboxChange("brands", brand)}
+                className="form-checkbox"
+              />
+              <span className="ml-2">{brand}</span>
             </label>
           ))}
         </div>
-
-        <button className="text-violet-600 mt-1 text-xs">Еще 39</button>
+      </div>
+      <div>
+        <h4 className="font-medium mb-2">Mamlakatlar</h4>
+        <div className="flex flex-col space-y-1">
+          {countries.map((country) => (
+            <label
+              key={country}
+              className="inline-flex items-center cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                checked={filter.countries.includes(country)}
+                onChange={() => handleCheckboxChange("countries", country)}
+                className="form-checkbox"
+              />
+              <span className="ml-2">{country}</span>
+            </label>
+          ))}
+        </div>
       </div>
     </div>
   );
